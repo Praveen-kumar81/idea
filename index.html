@@ -1,191 +1,161 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Konasam Praveen Kumar — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>konasam praveen kumar – Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#121212;
-      --card:#1b1b1b;
-      --muted:#9b9b9b;
-      --accent:#22c55e;
-      --white:#f6f6f6;
-      --glass: rgba(255,255,255,0.03);
+      --bg:#111315;
+      --panel:#181b1f;
+      --text:#e7e7e7;
+      --muted:#a1a6ad;
+      --accent:#19c37d;
+      --link:#c7c9cc;
+      --max:1100px;
+      --space:56px;
+      --radius:14px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
+    html{scroll-behavior:smooth}
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family:Poppins,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
       background:var(--bg);
-      color:var(--white);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
+      color:var(--text);
+      line-height:1.65;
     }
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:2rem;
-      padding:24px 48px;
-      position:sticky;
-      top:0;
-      z-index:40;
-      background:linear-gradient(180deg, rgba(0,0,0,0.4), transparent);
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(150%) blur(10px);
+      background:linear-gradient(to bottom, rgba(17,19,21,.85), rgba(17,19,21,.6));
+      border-bottom:1px solid rgba(255,255,255,.05);
     }
-    .brand{font-weight:700; letter-spacing:0.2px}
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{color:var(--muted); text-decoration:none; font-weight:500; font-size:14px}
-    nav a:hover{color:var(--white)}
-
-    .container{max-width:1100px;margin:0 auto;padding:60px 24px}
-    .hero{display:grid;grid-template-columns:1fr 400px;align-items:center;gap:40px;padding-top:30px}
-    .intro h1{font-size:36px;margin:0 0 8px 0;font-weight:800}
-    .intro p{color:var(--muted);margin:0}
-
-    .photo-wrap{display:flex;align-items:center;justify-content:center}
-    .photo{
-      width:340px;height:340px;border-radius:50%;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.6);background:linear-gradient(90deg,#0f0f0f,#131313);display:flex;align-items:center;justify-content:center;
+    .nav__inner{
+      max-width:var(--max); margin-inline:auto;
+      padding:14px 20px; display:flex; align-items:center; gap:28px;
     }
-    .photo img{width:100%;height:100%;object-fit:cover;display:block}
-
-    section{padding:64px 0;text-align:center}
-    section h2{font-size:28px;margin:0 0 18px 0}
-    .about-text{max-width:760px;margin:0 auto;color:var(--muted);font-size:14px}
-
-    .education,.experience{color:var(--muted);font-size:14px}
-
-    .skills-card{background:var(--card);padding:28px;border-radius:6px;max-width:880px;margin:24px auto;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-    .skills-grid{display:flex;justify-content:space-between;gap:12px}
-    .skill{flex:1;padding:20px}
-    .skill .percent{font-size:36px;font-weight:800;color:rgba(255,255,255,0.12)}
-    .skill small{display:block;margin-top:12px;color:var(--accent);font-weight:700}
-
-    .contact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;max-width:980px;margin:30px auto}
-    .contact-card{background:var(--glass);padding:26px;border-radius:8px}
-    .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(180deg,var(--accent), #059669);margin:0 auto 12px}
-    .muted{color:var(--muted);font-size:13px}
-
-    footer{padding:40px 0;color:var(--muted);text-align:center}
-
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;gap:28px}
-      .photo{width:260px;height:260px}
-      .contact-grid{grid-template-columns:repeat(2,1fr)}
-      header{padding:18px}
+    .brand{font-weight:700;}
+    .nav a{color:var(--link); text-decoration:none; font-weight:500; font-size:.95rem; padding:6px 10px; border-radius:8px;}
+    .nav a:hover{color:var(--text); background:rgba(255,255,255,.05)}
+    .nav a.active{color:var(--accent)}
+    .spacer{flex:1}
+    section{padding: clamp(54px, 8vw, 120px) 20px;}
+    .container{max-width:var(--max); margin-inline:auto}
+    h1,h2{margin:0 0 18px}
+    h2{text-align:center; margin-bottom:28px;}
+    p{color:var(--link)}
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; padding-top:72px;}
+    .hero h1{font-size: clamp(28px, 4.4vw, 44px);}
+    .subtitle{color:var(--muted);}
+    .photo-wrap{
+      width:min(320px, 75vw); aspect-ratio:1/1; margin-left:auto;
+      border-radius:50%; overflow:hidden; box-shadow:var(--shadow);
+      border:8px solid #0e1012;
+      display:grid; place-items:center;
     }
-    @media (max-width:480px){
-      .photo{width:200px;height:200px}
-      .intro h1{font-size:26px}
-      nav{display:none}
-      .contact-grid{grid-template-columns:1fr}
+    .photo{width:100%; height:100%; object-fit:cover;}
+    .narrow{max-width:780px; margin-inline:auto; text-align:center}
+    .center{text-align:center; color:var(--link)}
+    .edu{display:grid; gap:6px; place-items:center; color:var(--link);}
+    .skills{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+    .skill{background:var(--panel); border-radius:12px; padding:22px; text-align:center;}
+    .skill .pct{font-size:34px; font-weight:800;}
+    .skill .label{color:var(--accent);}
+    .contact{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+    .card{background:var(--panel); border-radius:14px; padding:22px; text-align:center;}
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--accent); display:inline-block; margin-bottom:10px;}
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      .photo-wrap{margin:0 auto}
+      .skills{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 520px){
+      .skills{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="brand">konasam praveen kumar</div>
-    <nav>
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="brand">konasam praveen kumar</div>
+      <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="container">
-      <section class="hero">
-        <div class="intro">
-          <h1>Hi, I am<br>k. praveen kumar</h1>
-          <p class="muted">Frontend Developer</p>
-        </div>
-        <div class="photo-wrap">
-          <div class="photo">
-            <img src="/mnt/data/WhatsApp Image 2025-08-11 at 20.57.50.jpeg" alt="Praveen Photo">
-          </div>
-        </div>
-      </section>
-
-      <section id="about">
-        <h2>About</h2>
-        <p class="about-text">I am motivated and curious student currently pursuing B.Tech in Computer Science &amp; Engineering. I'm an aspiring web developer with a growing passion for creating websites and learning how the web works. I have basic knowledge of HTML, CSS and JavaScript, and I enjoy building simple, responsive websites as I continue to improve my skills. I'm focused on learning modern tools and frameworks step by step and look forward to working on more hands-on projects that help me grow as a developer.</p>
-      </section>
-
-      <section id="experience">
-        <h2>Experience</h2>
-        <p class="experience muted">Currently working as a intern in nanomechlabs as UI/UX designer</p>
-      </section>
-
-      <section id="education">
-        <h2>Education</h2>
-        <div class="education muted">Veltech University<br>2023-2027<br>Bachelor of technology in Computer Science Engineering<br>Sri Chaitanya Junior College<br>2021-2023<br>MPC</div>
-      </section>
-
-      <section id="skills">
-        <h2>My Skills</h2>
-        <div class="skills-card">
-          <div class="skills-grid">
-            <div class="skill">
-              <div class="percent">50%</div>
-              <small>HTML</small>
-            </div>
-            <div class="skill">
-              <div class="percent">20%</div>
-              <small>CSS</small>
-            </div>
-            <div class="skill">
-              <div class="percent">10%</div>
-              <small>JAVASCRIPT</small>
-            </div>
-            <div class="skill">
-              <div class="percent">2%</div>
-              <small>Python</small>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="dot"></div>
-            <div class="muted">Full Name</div>
-            <div style="margin-top:8px;font-weight:600">k. praveen kumar</div>
-          </div>
-          <div class="contact-card">
-            <div class="dot"></div>
-            <div class="muted">Email Address</div>
-            <div style="margin-top:8px;font-weight:600">praveenkumarkonasam@gmail.com</div>
-          </div>
-          <div class="contact-card">
-            <div class="dot"></div>
-            <div class="muted">LinkedIn</div>
-            <div style="margin-top:8px;font-weight:600">Praveen reddy Konasam</div>
-          </div>
-          <div class="contact-card">
-            <div class="dot"></div>
-            <div class="muted">Phone</div>
-            <div style="margin-top:8px;font-weight:600">8074881708</div>
-          </div>
-        </div>
-      </section>
-
+      <div class="spacer"></div>
     </div>
-  </main>
+  </nav>
 
-  <footer>
-    © <span id="year"></span> konasam praveen kumar
-  </footer>
+  <section id="home">
+    <div class="container hero">
+      <div>
+        <h1>Hi, I am<br>k. praveen kumar</h1>
+        <div class="subtitle">Frontend Developer</div>
+      </div>
+      <div class="photo-wrap">
+        <!-- Embedded photo -->
+        <img class="photo" src="praveenk.jpg" alt="Profile Photo">
+      </div>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});})})
-  </script>
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <div class="narrow">
+        <p>I am a motivated and curious student currently pursuing B.Tech in Computer Science & Engineering.
+        I’m an aspiring web developer with a passion for creating websites and learning modern tools and frameworks.
+        I enjoy building responsive interfaces and turning ideas into real projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <h2>Experience</h2>
+      <p class="center">Currently working as an intern in nanomechlabs as UI/UX designer.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="edu">
+        <div><strong>Veltech University</strong> (2023–2027) - B.Tech in Computer Science Engineering</div>
+        <div><strong>Sri Chaitanya Junior College</strong> (2021–2023) - MPC</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>My Skills</h2>
+      <div class="skills">
+        <div class="skill"><div class="pct">50%</div><div class="label">HTML</div></div>
+        <div class="skill"><div class="pct">20%</div><div class="label">CSS</div></div>
+        <div class="skill"><div class="pct">10%</div><div class="label">JavaScript</div></div>
+        <div class="skill"><div class="pct">2%</div><div class="label">Python</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact">
+        <div class="card"><span class="dot"></span><div>Full Name</div><div>k. praveen kumar</div></div>
+        <div class="card"><span class="dot"></span><div>Email</div><a href="mailto:praveenkumarkonasaam@gmail.com">praveenkumarkonasaam@gmail.com</a></div>
+        <div class="card"><span class="dot"></span><div>LinkedIn</div><a href="#">Praveen reddy Konasam</a></div>
+        <div class="card"><span class="dot"></span><div>Phone</div><a href="tel:+918074881708">8074881708</a></div>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
